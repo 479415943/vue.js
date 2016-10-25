@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo16</title>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+</head>
+<body>
+    <!--<div id="div1" :style="{ color: activeColor, fontSize: fontSize }">sdsdsdsd</div>-->
+    <!--<div id="div1" v-bind:style="styleObject">ssssssssss</div>-->
+    <div id="div1" v-bind:style=[baseStyles,overwritingStyles]>ssssssssss</div>
+    <script>
+        var vm = new Vue({
+            el: '#div1',
+//            data: {
+//                activeColor: 'green',
+//                fontSize: '30px'
+//            }
+
+//            data: {
+//                styleObject: {
+//                    color: 'red',
+//                    fontSize: '30px'
+//                }
+//            }
+
+            data: {
+                baseStyles: {
+                    color: 'red',
+                    fontSize: '30px'
+                },
+                overwritingStyles:{
+                    background:'green',
+                    width:'100px',
+                    height:'200px',
+                    border:'5px solid blue'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

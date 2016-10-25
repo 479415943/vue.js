@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <myComponent></myComponent>
+    </div>
+
+    <script type="text/x-template" id="myComponent">
+        <div>this is a component</div>
+    </script>
+    <script>
+        Vue.component('my-component',{
+            template:'#myComponent'
+        })
+        new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

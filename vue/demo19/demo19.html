@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo19</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <ul id="example-1">
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+
+    <ul id="example-2">
+        <li v-for="item in items">
+            {{ parentMessage }} - {{ $index }} - {{ item.message }}
+        </li>
+    </ul>
+
+
+
+    <ul id="example-3">
+        <template v-for="item in items">
+            <li>{{ item.message}}</li>
+            <li class="divider">DIVIDER</li>
+        </template>
+    </ul>
+
+    <ul id="example-4">
+        <template v-for="value in object">
+            <li>{{$index}}.{{$key}}：{{value}}</li>
+        </template>
+    </ul>
+    <ul id="example-5">
+        <li v-for="n in 100">{{n}}</li>
+    </ul>
+    <ul id="example-6">
+        <li v-for="n in evenNumbers">{{n}}</li>
+    </ul>
+    <script>
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+        example1.items.push({ message: 'Baz' });
+        example1.items.pop();
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                parentMessage: 'Parent',
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+        var example3 = new Vue({
+            el: '#example-3',
+            data: {
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+        var example4 = new Vue({
+            el: '#example-4',
+            data: {
+                object: {
+                    name:'思博',
+                    school:'广东工业大学'
+                }
+            }
+        })
+        var example5=new Vue({
+            el:'#example-5'
+        })
+        var example6=new Vue({
+            el:'#example-6',
+            data:{
+                numbers:[1,2,3,4,5,6]
+            },
+            computed:{
+                evenNumbers:function(){
+                    return this.numbers.filter(function(number){
+                        return number %2===0;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

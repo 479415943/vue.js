@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <input type="text" v-model.lazy="message" value="初始化值" placeholder="edit it"/>
+
+        <div>{{checked}}</div>
+        <input type="checkbox" id="checkbox" value="value" v-model="checked" />
+
+        <input type="checkbox" value="A" id="checkbox" v-model="checkedNames" />
+        <input type="checkbox" value="B"  id="checkbox" v-model="checkedNames" checked/>
+        <input type="checkbox" value="C"  id="checkbox" v-model="checkedNames" />
+        <input type="checkbox" value="D"  id="checkbox" v-model="checkedNames" />
+        <input type="checkbox" value="E"  id="checkbox" v-model="checkedNames" />
+        <div>checked names:{{checkedNames}}</div>
+        <input type="radio" id="one" name="num" value="one" v-model="picked"/>
+        <input type="radio" id="two" name="num" value="two" v-model="picked"/>
+        <div>radio number is:{{picked}}</div>
+    </div>
+    <script>
+        var vueDemo=new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!',
+                checked: true,
+                checkedNames:['A','B','C','D','E'],
+                picked: 'one'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo24</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="div1" @click="divFunction">
+    <a @click.stop.prevent="say" href="http://www.baidu.com">a标签</a>
+</div>
+<script>
+    var vm=new Vue({
+        el:'#div1',
+        methods: {
+            say: function () {
+                alert('已经阻止默认事件和事件冒泡。');
+            },
+            divFunction: function () {
+                alert('已经没有阻止事件冒泡。');
+            }
+        }
+    });
+</script>
+</body>
+</html>

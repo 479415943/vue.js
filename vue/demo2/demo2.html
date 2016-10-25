@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+</head>
+<body>
+    <div id="app2" class="demo">
+        <p>{{ message }}</p>
+        <input v-model="message">
+        <p v-text="stringText"></p>
+        <p v-html="innerhtml"></p>
+        <button v-on:click="func1">sdsds</button>
+        <img v-bind:src="src"/>
+    </div>
+    <script>
+        var vueDemo=new Vue({
+            el: '#app2',
+            data: {
+                message: 'Hello Vue.js!',
+                stringText: '232',
+                innerhtml:'<h1>22222222222</h1>',
+                src:'../components.png'
+            },
+            methods:{
+                func1:function(){
+                    alert('我是func1');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+</html>

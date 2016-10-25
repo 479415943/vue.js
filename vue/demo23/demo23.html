@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo23</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="div1" v-on:click="click">
+        <button  v-on:click.stop.prevent="say('hello!', $event)">Submit</button>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#div1',
+            methods: {
+                say: function (msg, event) {
+                    // 现在我们可以访问原生事件对象
+                    alert('hello from button')
+//                    event.stopPropagation();
+                },
+                click: function () {
+                    alert('click from div');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo22</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="example-1">
+        <button @click="greet">Greet</button>
+        <button @click="say('hi')">Say Hi</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#example-1',
+            data: {
+                name: 'Vue.js',
+                tell:'hi'
+            },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                greet: function (event) {
+                    // 方法内 `this` 指向 vm
+                    alert('Hello ' + this.name + '!')
+                    // `event` 是原生 DOM 事件
+                    alert(event.target.tagName)
+                },
+                say: function () {
+                    // 方法内 `this` 指向 vm
+                    alert(this.tell);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

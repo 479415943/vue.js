@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <select v-model="selected" multiple>
+           <option v-for="option in options" v-bind:value="option.value">
+               {{option.text}}
+           </option>
+       </select>
+        <span>{{selected}}</span>
+    </div>
+    <div id="app2">
+        <input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b"/>
+        <span>{{toggle}}</span>
+    </div>
+    <script>
+        var vueDemo=new Vue({
+            el: '#app',
+            data: {
+                options:[
+                    {text:'one',value:'A'},
+                    {text:'two',value:'B'},
+                    {text:'three',value:'C'},
+                ],
+                selected:'B'
+            }
+        })
+        var vueDemo2=new Vue({
+            el: '#app2',
+            data: {
+                toggle:'true'
+            }
+        })
+        console.log('checked'+vueDemo2.toggle===vueDemo2.a);
+        console.log('unchecked'+vueDemo2.toggle===vueDemo2.b);
+    </script>
+</body>
+</html>

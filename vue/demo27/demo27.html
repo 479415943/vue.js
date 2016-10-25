@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo27</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="example1">
+    <hello></hello>
+    <parent></parent>
+</div>
+
+<div id="example2">
+    <hello></hello>
+    <parent></parent>
+</div>
+<script>
+
+    var Child = Vue.extend({
+        template:'<div>{{childmessage}}</div>',
+        data:function(){
+            return{childmessage:'子集的模版'}
+        },
+        el:function(){
+            return '#example1'
+        }
+    });
+
+    var Parent = Vue.extend({
+        template:"<div>{{parentmessage}}<child></child></div>",
+        data:function(){
+            return{parentmessage:'父集的模版'}
+        },
+        components:{
+            'child': Child
+        },
+        el:function(){
+            return '#example1'
+        }
+    });
+
+    //Vue.component('parent',Parent);//全局注册
+    var hello= {
+        el: function () {
+            return '#example1'
+        },
+        template: '<span>{{message}}</span>',
+        data: function () {
+            return {message: 'hello'}
+        }
+    }
+
+    //Vue.component('hello',hello);//全局注册
+
+    var vm= new Vue({
+        el:'#example1',
+        components:{//局部注册
+            'parent': Parent,
+            'hello':hello
+        }
+    });
+    var vm1= new Vue({
+        el:'#example2'
+    });
+
+
+</script>
+</body>
+</html>

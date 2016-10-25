@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-component v-bind:myn-ame="ame" v-bind:my-age="age"></my-component>但是在html 不能用驼峰命名，因为html的属性是区分大小写的，所以用短横线法。
+    </div>
+    <script type="text/x-template" id="myComponent">
+        <table>
+            <tr>
+                <th colspan="2">子组件数据</th>
+            </tr>
+            <tr>
+                <td>my name</td>
+                <td>{{mynAme}}</td>
+            </tr>
+            <tr>
+                <td>my age</td>
+                <td>{{myAge}}</td>
+            </tr>
+        </table>
+    </script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                ame:'黄思博',
+                age:18
+            },
+            components:{
+                'my-component':{
+                    template:'#myComponent',
+                    props:['mynAme','myAge']//参数是用驼峰命名法;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

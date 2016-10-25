@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+    <style>
+        #item-idname{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="app2" class="demo">
+        <div>{{{ raw_html }}}</div>
+        <div id="item-{{ id }}">sdsdsd</div>
+    </div>
+    <script>
+        var vueDemo=new Vue({
+            el: '#app2',
+            data: {
+                id:'idname',
+                message: 'Hello Vue.js!',
+                raw_html: '<h1>我是谁？</h1>'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo18</title>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="ok">
+        ok
+        <h1>asdasdasd</h1>
+    </div>
+    <div v-else>
+        Sorry
+    </div>
+
+    <template v-if="ok">
+        <h1>Title1</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+    <template v-if="!ok">
+        <h1>Title2</h1>
+        <p>Paragraph 3</p>
+        <p>Paragraph 4</p>
+    </template>
+</div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                ok:false
+            }
+        });
+    </script>
+
+</body>
+</html>

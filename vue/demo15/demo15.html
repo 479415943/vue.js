@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo15</title>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+    <style>
+        .static{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .class-a{
+            border: 5px solid crimson;
+        }
+        .class-b{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+<!--    <div id="div1" class="static" v-bind:class="{ 'class-a': isA, 'class-b': isB }"></div>-->
+<!--    <div id="div1" class="static" v-bind:class="classObject"></div>-->
+    <div id="div1" class="static" v-bind:class="[isActive? classA:'',classB]">
+</body>
+<script>
+    var vm =new Vue({
+        el:'#div1',
+/*       data:{
+           isA:true,
+           isB:false
+       }*/
+/*       data: {
+          classObject: {
+               'class-a': true,
+                'class-b': false
+            }
+       }*/
+
+       data: {
+           isActive:true,
+           classA: 'class-a',
+           classB: 'class-b'
+       }
+    })
+</script>
+</html>

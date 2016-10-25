@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo25</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <input id="input" @keyup.enter="submit"/>
+    <script>
+        var vm=new Vue({
+            el:('#input'),
+            methods:{
+                submit:function () {
+                    alert('触发了submit事件。')
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
